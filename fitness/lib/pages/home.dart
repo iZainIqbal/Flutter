@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 15,),
               ListView.separated(
+
                 itemCount: popularDiets.length,
                 shrinkWrap: true,
                 separatorBuilder: (context,index) => const SizedBox(width: 25,),
@@ -78,52 +79,55 @@ class _HomePageState extends State<HomePage> {
 
                         ],
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SvgPicture.asset(popularDiets[index].iconPath,
-                          height: 65,
-                          width: 65,
-                         ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                popularDiets[index].name,
-                                style: const TextStyle(
-                                   color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
+                      child: Expanded(
+                        child: Row(
+                          
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SvgPicture.asset(popularDiets[index].iconPath,
+                            height: 65,
+                            width: 65,
+                           ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  popularDiets[index].name,
+                                  style: const TextStyle(
+                                     color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '${popularDiets[index].level} | ${popularDiets[index].duration} | ${popularDiets[index].calorie}',
-                                 style: const TextStyle(
-                                   color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
+                                Text(
+                                  popularDiets[index].level + ' | ' + popularDiets[index].duration + ' | ' + popularDiets[index].calorie,
+                                   style: const TextStyle(
+                                     color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          GestureDetector(
-                            onTap: (){
-
-                            },
-                            child: SvgPicture.asset(
-                              'assets/icons/button.svg',
-                              width: 30,
-                              height: 30,
+                              ],
                             ),
-                          )
-                        ],
+                            GestureDetector(
+                              onTap: (){
+                      
+                              },
+                              child: SvgPicture.asset(
+                                'assets/icons/button.svg',
+                                width: 30,
+                                height: 30,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       
                     );
                 },
-                scrollDirection: Axis.horizontal,
-                ),
+                
+                )
             ],
            )  ,
            const SizedBox(height: 40,)
