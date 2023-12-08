@@ -1,7 +1,9 @@
+import 'package:expense_tracker/Widgets/Chart/chart.dart';
 import 'package:expense_tracker/Widgets/Expenses_list/expenses_list.dart';
 import 'package:expense_tracker/Widgets/new_expense.dart';
 import 'package:flutter/material.dart';
-import 'package:expense_tracker/Models/expense.dart';
+
+import '../models/expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -39,7 +41,30 @@ class _ExpenseState extends State<Expenses> {
     });
   }
 
-  void _opernAddExpenseOverlay() {
+  void _removeExpenses(Expense expense) {
+    final expenseIndex = _registeredExpenses.indexOf(expense);
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(
+          seconds: 2,
+        ),
+        content: const Text('Expense Deleted!'),
+        action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () {
+              setState(() {
+                _registeredExpenses.insert(expenseIndex, expense);
+              });
+            }),
+      ),
+    );
+  }
+
+  void _openAddExpenseOverlay() {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -49,20 +74,33 @@ class _ExpenseState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No Expense found, Start adding some! '),
+    );
+
+    if (_registeredExpenses.isNotEmpty) {
+      mainContent = ExpensesList(
+        expense: _registeredExpenses,
+        OnRemoveExpense: _removeExpenses,
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter Expense Tracker"),
         actions: [
           IconButton(
-            onPressed: _opernAddExpenseOverlay,
+            onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
           ),
         ],
       ),
       body: Column(
         children: [
-          const Text("Chart"),
-          Expanded(child: ExpensesList(expense: _registeredExpenses)),
+          Chart(expense: _registeredExpenses),
+          Expanded(
+            child: mainContent,
+          ),
         ],
       ),
     );
