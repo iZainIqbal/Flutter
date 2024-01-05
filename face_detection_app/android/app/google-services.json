@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "602051638706",
+    "project_id": "facedetectionml-a4cdd",
+    "storage_bucket": "facedetectionml-a4cdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602051638706:android:1895528ad9a071d1e260ab",
+        "android_client_info": {
+          "package_name": "com.example.face_detection_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY9ST1rutjzwYS62I27piQ4bwor30vXQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602051638706:android:c4eeffa8067e4a2fe260ab",
+        "android_client_info": {
+          "package_name": "com.flutter.zaindevs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY9ST1rutjzwYS62I27piQ4bwor30vXQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

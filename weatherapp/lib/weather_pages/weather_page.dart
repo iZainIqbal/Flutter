@@ -26,6 +26,7 @@ class _WeatherPageState extends State<WeatherPage> {
         _weather = weather;
       });
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }
@@ -40,7 +41,7 @@ class _WeatherPageState extends State<WeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.fromLTRB(16.0, 48, 16, 32),
+        padding: const EdgeInsets.fromLTRB(16.0, 48, 16, 32),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

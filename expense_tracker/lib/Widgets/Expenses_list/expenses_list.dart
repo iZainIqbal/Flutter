@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/Widgets/Expenses_list/expense_item.dart';
 import 'package:flutter/material.dart';

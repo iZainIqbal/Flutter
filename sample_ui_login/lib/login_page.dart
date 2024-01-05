@@ -1,6 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:sample_ui_login/components/my_buton.dart';
-import 'package:sample_ui_login/components/mytextField.dart';
+import 'package:sample_ui_login/components/my_textfield.dart';
 import 'package:sample_ui_login/components/square_tile.dart';
 
 class LoginPage extends StatelessWidget {
