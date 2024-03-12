@@ -1,5 +1,6 @@
 import 'package:firebase_app/presentation/authentication/login_with_phone.dart';
 import 'package:firebase_app/presentation/authentication/signup_screen.dart';
+import 'package:firebase_app/presentation/home/home_screen.dart';
 import 'package:firebase_app/presentation/post/post_screen..dart';
 import 'package:firebase_app/utils/utils.dart';
 import 'package:firebase_app/widgets/button.dart';
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       Utils().toastmessage(value.user!.email.toString());
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const PostScreen()));
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
     }).onError((error, stackTrace) {
       setState(() {
         loading = false;
